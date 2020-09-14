@@ -1,0 +1,85 @@
+.main-content{
+	width: 100%;
+	margin: 5em auto;
+}
+.company__info{
+	width: 50%;
+	color: black;
+	margin: 3em auto;
+}
+.company__info_pie{
+	margin-top: 7em;
+	font-size: 20px;
+	color: rgb(207,207,207);
+}
+@media screen and (max-width: 640px) {
+	.main-content{width: 90%;}
+	.company__info{
+		display: none;
+	}
+}
+@media screen and (min-width: 642px) and (max-width:800px){
+	.main-content{width: 70%;}
+}
+.row > h2{
+	color: black;
+}
+.login_form{
+	width: 50%;
+}
+form{
+	padding: 0 2em;
+}
+.form-group{
+	width: 100%;
+	margin: 10px auto;
+}
+.form__input{
+	width: 90%;
+	border:0px solid transparent;
+	border-bottom: 1px solid rgb(226,226,226);
+}
+input:focus, input.form-control:focus{
+	outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+}
+.form__input:focus{
+	border-bottom: 1px solid black;
+}
+.form__fa{
+	width: 25px;
+	padding-top: 7px;
+}
+.input-group{
+	margin: 25px auto;
+}
+.form__btn{
+	width: 100px;
+}
+.form .form-registrar {
+  display: none;
+}
+.form__fa_new{
+	width: 10px;
+	padding-top: 5px;
+}
+.form__input_reg{
+	width: 100%;
+	border: 0px solid transparent;
+	border-bottom: 1px solid rgb(226,226,226);
+}
+.form__input_reg1{
+	width: 48%;
+	border: 0px solid transparent;
+	border-bottom: 1px solid rgb(226,226,226);
+}
+.form__input_reg2{
+	width: 4%;
+	border: 0px solid transparent;
+}
+.form__input_reg:focus,
+.form__input_reg1:focus,
+.form__input_reg2:focus{
+	border-bottom: 1px solid black;
+}

@@ -1,0 +1,114 @@
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Yinka Enoch Adedokun">
+	<title>Iniciar Sesión</title>
+	<link href="{{url_for('static', filename = 'principal_ingresar.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<!-- Main Content -->
+	<div class="container">
+		<div class="row main-content text-center">
+			<div class="company__info">
+				<span class="row company__logo d-flex justify-content-center"><img src="{{url_for('static', filename = 'LogoFinal.png')}}"></span>
+				<h4 class="row d-flex flex-column">Keratodiagnosis</h4>
+        <div class="container-fluid text-center footer company__info_pie">
+          <P>Tesis FISI - UNMSM 2020</P>
+        </div>
+			</div>
+			<div class="login_form">
+				<div class="aside container">
+					<div class="form">
+						<form control="" class="form-registrar form-group" method="POST" action="/registrar">
+							<div class="row">
+								<h2>Registrar una cuenta</h2>
+							</div>
+							<div class="form-group row">
+							    <input type="text" class="form__input_reg" id="dni" name="dni" placeholder="DNI" required>
+							</div>
+							<div class="form-group row">
+							    <input type="text" class="form__input_reg" id="nombre" name="nombre" placeholder="Nombres" required>
+							</div>
+							<div class="form-group row">
+							    <input type="text" class="form__input_reg1" id="apellido_paterno" name="apellido_paterno" placeholder="Apellido paterno" required="">
+							    <div class="form__input_reg2"></div>
+							    <input type="text" class="form__input_reg1" id="apellido_materno" name="apellido_materno" placeholder="Apellido materno" required>
+							</div>
+							<div class="form-group row">
+							    <select name="lista_usuario" class="selectpicker form__input_reg" id="lista_usuario" required>
+									<option>Usuario</option>
+									<option value="0">Medico</option>
+									<option value="1">Tecnico</option>
+							    </select>
+							</div>
+							<div class="form-group row medico_info" id="medico_info">
+							    <input type="text" class="form__input_reg1" id="tipo_medico" name="tipo_medico" placeholder="Tipo de médico">
+							    <div class="form__input_reg2"></div>
+							    <select name="lista_clinica" class="selectpicker form__input_reg1">
+							    	<option>Clínica</option>
+							    	{%for lista in lista_clinica%}
+									    <option value="{{lista.0}}">{{lista.1}}</option>
+							    	{%endfor%}
+							    </select>
+							</div>
+							<div class="form-group row">
+							    <input type="email" class="form__input_reg" id="email" name="email" placeholder="Correo" required>
+							</div>
+							<div class="form-group row">
+							    <input type="password" class="form__input_reg" id="password" name="password" placeholder="Contraseña" required>
+							</div>
+							<button type="submit" class="btn btn-secondary form__btn" id="boton_registrar">Registrar</button>
+							<p class="mensaje">¿Ya tienes una cuenta?<a href="#" class="">Iniciar Sesión</a></p>
+						</form>
+
+
+						<form control="" class="form-iniciar form-group" action="/ingresar" method="POST">
+							<div class="row">
+								<h2>Iniciar Sesión</h2>
+							</div>
+							<div class="row input-group">
+						       	<i class="fa fa-user form__fa"></i>
+						        <input type="email" name="email" id="email" class="form__input" placeholder="Usuario" required>
+						    </div>
+							<div class="row input-group">
+								<i class="fa fa-lock form__fa"></i>
+								<input type="password" name="password" id="password" class="form__input" placeholder="Contraseña" required>
+							</div>	
+							<button type="submit" class="btn btn-secondary form__btn">Ingresar</button>
+							<p class="mensaje">¿No tienes una cuenta?<a href="#" class="">Crear cuenta</a></p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer -->
+	<div class="container-fluid text-center footer">
+	</div>
+
+<script type="text/javascript">
+	$('.mensaje a').click(function(){
+		$('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+	});
+	$(document).ready(function() {
+        $('#medico_info').hide();
+    });
+	var select = document.getElementById('lista_usuario');
+	select.addEventListener('change',
+	  function(){
+	    var selectedOption = this.options[select.selectedIndex];
+	    if(selectedOption.value==0){
+	    	$('#medico_info').show();
+	    }
+	    else{
+	    	$('#medico_info').hide();
+	    }
+	  });
+</script>
+</body>
